@@ -1,4 +1,4 @@
-### vercon
+# vercon
 A version control system for a single user without any access to internet
 
 ## Why not find a workaround for other VCS like git or svn?
@@ -9,13 +9,13 @@ A version control system for a single user without any access to internet
 
 ## Usage
 
-# easiest option 
+### easiest option 
 Run the script at any point you want to save
 
-# laziest option
+### laziest option
 Run a cronjob with your specified interval to mimic autosave
 
-# best option 
+### best option 
 alias it so you can use it like a commandline
 
 ## Commands
