@@ -1,4 +1,4 @@
-# vercon
+### vercon
 A version control system for a single user without any access to internet
 
 ## Why not find a workaround for other VCS like git or svn?
@@ -17,6 +17,8 @@ Run a cronjob with your specified interval to mimic autosave
 
 # best option 
 alias it so you can use it like a commandline
+
+## Commands
 
 vc init : initialize vercon 
 
