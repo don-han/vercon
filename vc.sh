@@ -6,9 +6,10 @@ VERCON_DIR=.vc
 VERCON_FILES=vc_files
 VERCON_LOG=vc_log
 
-if [[ ! -d $VERCON_LOG ]]; then
-    if [[ ! "$1"="init" ]]; then
+if [[ ! -d $VERCON_DIR ]]; then
+    if [[ ! "$1" = "init" ]]; then
         echo "fatal: Not a vc repository"
+        exit 1
     fi
 fi
 
