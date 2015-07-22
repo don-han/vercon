@@ -2,24 +2,32 @@
 
 usage="usage: vc"
 
-VERCON_DIR=.vercon
+VERCON_DIR=.vc
 VERCON_FILES=vc_files
 VERCON_LOG=vc_log
+
+if [[ ! -d $VERCON_LOG ]]; then
+    if [[ ! "$1"="init" ]]; then
+        echo "fatal: Not a vc repository"
+    fi
+fi
+
 
 init(){
     mkdir -p $VERCON_DIR
 }
 
 add(){
-    # TODO: if no change, do not allow add
-    if [[ -f $VERCON_DIR/$VERCON_FILES ]] && grep -Fxq "$1" $VERCON_DIR/$VERCON_FILES; then
+    file_name="$1"
+    # If a file is already added to the list, do not add
+    if [[ -f $VERCON_DIR/$VERCON_FILES ]] && grep -Fxq "$file_name" $VERCON_DIR/$VERCON_FILES; then
         return
     fi
     
-    if [[ -f "$1" ]]; then
-        echo "$1" >> $VERCON_DIR/$VERCON_FILES
+    if [[ -f "$file_name" ]]; then
+        echo "$file_name" >> $VERCON_DIR/$VERCON_FILES
     else
-        echo "File $1 does not exists"
+        echo "File $file_name does not exists"
     fi
 }
 
@@ -48,7 +56,6 @@ revert(){
 }
 
 # assume a user has successfully 'vc init'
-init
 
 if [[ $# -eq 0 ]]; then
     echo "$usage"
@@ -84,10 +91,3 @@ elif [[ $# -eq 2 ]]; then
              ;;
      esac
 fi
-
-
-
-
-
-
-
