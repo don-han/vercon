@@ -36,10 +36,10 @@ add(){
 save(){
     # TODO: store diff, not entire file
 
-    message=$1
+    local message=$1
     while read file; do 
         if [[ -f "$file" ]]; then
-            file_id=$(date +%Y%m%d%H%M%S)
+            local file_id=$(date +%Y%m%d%H%M%S)
             cp $file $VERCON_DIR/$file-$file_id
             echo "[ $file-$file_id ] $message" >> $VERCON_DIR/$VERCON_LOG
         fi
@@ -54,6 +54,9 @@ log(){
 
 revert(){
     file_id=$1
+    if [[ -f $VERCON_DIR/$file_id ]]; then
+    fi
+
 }
 
 # assume a user has successfully 'vc init'
@@ -78,13 +81,13 @@ elif [[ $# -eq 1 ]]; then
 elif [[ $# -eq 2 ]]; then
     case "$1" in 
         add)
-            add $2
+            add "$2"
             ;;
         save)
             save "$2"
             ;;
         revert)
-            revert $2
+            revert "$2"
             ;;
          *)
              echo "$usage"

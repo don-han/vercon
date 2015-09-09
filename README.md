@@ -3,9 +3,10 @@ A version control system for a single user without any access to internet
 
 ## Why not find a workaround for other VCS like git or svn?
 
-1. A workaround is a workaround. Since other VCS are designed to be used with mutliple people who have access to internet, the workaround is going to be inherently hacky. This means that this workaround is going to be complicated and long. The more complicated steps, the more likely something might go wrong. Vercon intends to be a convinient alternative for those who do not need the full features of traditional VCS.
+1. A workaround is a workaround. Since other VCS are designed to be used with mutliple people who have access to internet (to connect to remote), the workaround is going to be inherently hacky, meaning it's naturally complicated. The more complicated, the more likely something could go wrong. 
+Vercon intends to be a convenient and intuitive alternative for those who do not need the full features of traditional VCS, yet wishes to preserve the history of the codes.
 
-2. The project became needed when I had to write a program on a server without any access to internet. Not only did it lack internet, it did not have VCS tools such as git. At that point, a workaround was a luxry
+2. The project became needed when I had to write a script on a server without any access to internet. Not only did it lack internet, it did not have VCS tools such as git. Vercon, which is a single bash script, can be easily transferred over with tools like `scp`.
 
 ## Usage
 
@@ -16,9 +17,9 @@ Run the script at any point you want to save
 Run a cronjob with your specified interval to mimic autosave
 
 ### best option 
-alias it so you can use it like a commandline
+alias it so you can use it like an actual command
 
-## Commands
+## Commands (under the assumption that you have aliased the bash script to `vc`)
 
 vc init : initialize vercon 
 
@@ -39,11 +40,8 @@ vc autosave
 ## Features
 
 - Vercon will save a new version only if the file is edited. 
-- Version IDs are timestamps which are very human-readable 
+- Version IDs are timestamps which are very human-readable, so it's easy to navigate
 - Autosave
 
 ## Cons
-- cannot save to cloud
-
-
-
+- cannot save to remote repository
